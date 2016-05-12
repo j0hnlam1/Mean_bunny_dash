@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mongoose dash</title>
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<!-- socket.io -->
+    <!-- <script type ="text/javascript" src="/socket.io/socket.io.js"></script> -->
+
+    <!-- materialize -->
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+</head>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+		});
+	</script>
+<body>
+<div class='container'>
+	<div class='row'>
+		<div class='col s12 center-align'>
+			<h4>Welcome to rabbit dashboard</h4>
+
+			<div class='row'>
+				<div class='col s12 center-align'> 
+					<h5>List of rabbits</h5>
+					<table>
+						<thead>
+						<tr>
+							<td>name</td>
+							<td>color</td>
+							<td>weight</td>
+							<td>quote</td>
+						</tr>
+						</thead>
+						<%for (var x in bunny) {%>
+						<tr>
+							<td>"<%= bunny[x].name %>"</td>
+							<td>"<%= bunny[x].color %>"</td>
+							<td>"<%= bunny[x].weight %>"</td>
+							<td>"<%= bunny[x].quote %>"</td>
+							<td><a href='/edit/<%= bunny[x]._id%>' class='waves-effect waves-light btn cyan'>Edit!</a></td>
+							<td><a href='/remove/<%= bunny[x]._id%>' class='waves-effect waves-light btn pink'>Remove!</a></td>
+						</tr>			
+						<% } %>
+					</table>
+				</div>
+			</div>
+			<!-- buttons -->
+			<div class="row">
+				<div class='col s12 center-align'>
+					<a href='/addabunny' class='waves-effect waves-light btn blue'>Add rabbit!</a>
+	        	</div>
+			</div> 
+		</div>
+	</div>
+</div>
+</body>
+</html>
